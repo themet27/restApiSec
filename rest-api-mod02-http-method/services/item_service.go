@@ -33,6 +33,12 @@ func (s *ItemService) CreateItem(newItem models.Item) models.Item {
 	return newItem
 }
 
+func (s *ItemService) CreateProduct(newProduct models.Product) models.Product {
+	newProduct.ID = len(products) + 1
+	products = append(products, newProduct)
+	return newProduct
+}
+
 // UpdateItem updates an existing item
 func (s *ItemService) UpdateItem(id int, updatedItem models.Item) (models.Item, bool) {
 	for i, item := range items {
